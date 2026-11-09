@@ -1,0 +1,5 @@
+{
+  "animales": [
+    { "id": 1, "nombre": "Luna", "especie": "Gato" }
+  ]
+}

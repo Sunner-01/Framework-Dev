@@ -1,0 +1,8 @@
+node_modules/
+backend/dist/
+frontend/.next/
+playwright-report/
+test-results/
+backend/db.e2e.json
+*.tsbuildinfo
+.env

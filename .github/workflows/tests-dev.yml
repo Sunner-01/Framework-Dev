@@ -1,0 +1,27 @@
+name: Pruebas en dev
+
+on:
+  push:
+    branches: [dev]
+
+jobs:
+  pruebas:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar código
+        uses: actions/checkout@v4
+      - name: Preparar Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Instalar dependencias
+        run: npm install --no-audit --no-fund
+      - name: Pruebas unitarias
+        run: npm run test:unit
+      - name: Pruebas de integración
+        run: npm run test:integration
+      - name: Instalar Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Pruebas E2E
+        run: npm run test:e2e
